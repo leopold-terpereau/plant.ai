@@ -1,0 +1,46 @@
+body{
+    background-repeat: no-repeat;
+     background-attachment: fixed;
+    background-position: up 50px right 100px;
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+    color: forestgreen;
+    font-size: 300%;
+
+
+}
+
+h2{
+  text-align: center;
+
+
+}
+
+ml-3 {
+  text-align: left;   
+  font-size: 150%;
+}
+
+
+
+h3 {
+  margin : 5pt;
+  margin-left : 150pt;
+  text-align: left;
+  font-size: 100%;
+}
+
+
+p {
+    text-align : left;
+    color: forestgreen;
+}
+
+ol{
+    color: #228b22; 
+    font-size: xx-large;
+
+}
