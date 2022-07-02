@@ -35,8 +35,7 @@ $("#predict-button").click(async function () {
         .resizeNearestNeighbor([256, 256])                      // redimmensionnement de l'image en (1,256,256,3) 
         .toFloat()
         .expandDims();
-    const offset = tf.scalar(255);  
-    tensor = tensor.div(offset);                                // normalisation du tenseur càd division des valeurs des pixels (entre 0 et 255) par 255
+
 
 
     // Si le modèle sélectionné est la recconnaissance de l'espèce, on recupère les sorties possibles du modèle dans SPECIES_CLASSES
@@ -62,6 +61,8 @@ $("#predict-button").click(async function () {
 
                                                                 // Si le modèle sélectionné est un nom d'espèce, on recupère les sorties possibles du modèle dans HEALTH_CLASSES
     else{
+        const offset = tf.scalar(255);  
+        tensor = tensor.div(offset);                                // normalisation du tenseur càd division des valeurs des pixels (entre 0 et 255) par 255
         let predictions = await model.predict(tensor).data();   // On applique le CNN au tenseur et on récupère la sortie
         let result = Array.from(predictions)
         .map(function (p,i) {                                   // On associe à chaque sortie (càd à chaque valeur de probabilité) la classe (càd l'état de santé) correspondant
